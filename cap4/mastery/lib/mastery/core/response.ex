@@ -1,7 +1,9 @@
 defmodule Mastery.Core.Response do
   defstruct ~w[quiz_title template_name to email answer correct timestamp]a
 
-  def new(quiz, email, answer) do
+  alias Mastery.Core.Quiz
+
+  def new(%Quiz{} = quiz, email, answer) do
     question = quiz.current_question
     template = question.template
 
