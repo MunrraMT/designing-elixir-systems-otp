@@ -1,9 +1,8 @@
 defmodule QuizBuilders do
-  alias Mastery.Core.{Template, Response, Quiz}
+  alias Mastery.Core.{Template, Quiz, Question}
 
-  defmacro __using__(options) do
+  defmacro __using__(_options) do
     quote do
-      alias Mastery.Core.{Template, Response, Quiz}
       import QuizBuilders
     end
   end
@@ -36,7 +35,7 @@ defmodule QuizBuilders do
   def single_digits(), do: Enum.to_list(0..9)
   def double_digits(), do: Enum.to_list(10..99)
 
-  def add_checker(substitutions, answer) do
+  def addition_checker(substitutions, answer) do
     left = Keyword.fetch!(substitutions, :left)
     right = Keyword.fetch!(substitutions, :right)
 
